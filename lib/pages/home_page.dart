@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_umkm/dashboard.dart';
+import 'package:mobile_umkm/pages/opname_page.dart';
+import 'package:mobile_umkm/pages/order_page.dart';
+import 'package:mobile_umkm/theme.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,18 +15,8 @@ class _HomePageState extends State<HomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Dashboard(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: inventory',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    OrderPage(),
+    OpnamePage()
   ];
 
   void _onItemTapped(int index) {
@@ -35,9 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
+      appBar: null,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -48,20 +39,20 @@ class _HomePageState extends State<HomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Order',
           ),
           // BottomNavigationBarItem(
           //   icon: Icon(Icons.business),
           //   label: 'inventory',
           // ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.maps_home_work_outlined),
+            label: 'Opname',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: primaryColor,
         onTap: _onItemTapped,
       ),
     );

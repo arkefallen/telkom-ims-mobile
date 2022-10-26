@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                     child: const Text('LoginLogin'),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/profile');
+                      Navigator.pushNamed(context, '/home');
                     },
                   )),
             ],
