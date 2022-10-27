@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 double defaultMargin = 30.0;
 
-Color primaryTextColor = Color(0xffF1F0F2);
+Color primaryTextColor = Color.fromARGB(255, 255, 255, 255);
 Color primaryColor = Color(0xffC93537);
 
 TextStyle primaryTextStyle = GoogleFonts.roboto(

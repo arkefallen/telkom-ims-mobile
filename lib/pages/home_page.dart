@@ -32,28 +32,32 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Order',
-          ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.business),
-          //   label: 'inventory',
-          // ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.maps_home_work_outlined),
-            label: 'Opname',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: primaryColor,
-        onTap: _onItemTapped,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          border: Border.fromBorderSide(BorderSide(
+            color: Color.fromARGB(255, 212, 211, 213),
+            width: 1.0
+          ))
+        ),
+        child: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Order',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.maps_home_work_outlined),
+              label: 'Opname',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: primaryColor,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

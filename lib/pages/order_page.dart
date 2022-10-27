@@ -33,13 +33,13 @@ class _OrderPageState extends State<OrderPage> {
                   child: const Text('Penerimaan Barang'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/home');
-                  },
+                  }
                 ),
                 ElevatedButton(
                   child: const Text('Retur Barang'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/home');
-                  },
+                  }
                 ),
               ],
             ),
@@ -59,19 +59,22 @@ class _OrderPageState extends State<OrderPage> {
                   color: Colors.grey.shade200,
                 ),
               ),
-              child: ListTile(
-                  leading: Image.asset('assets/icon_item.png'),
-                  title: Text('Nama Produk'),
-                  subtitle: Text('Stok masuk : 6\nStok Keluar : 2'),
-                  trailing: OutlinedButton(
-                    onPressed: () {
-                      // Respond to button press
-                    },
-                    child: Text(
-                      "Tersedia 20",
-                      style: TextStyle(color: Colors.black, fontSize: 10),
-                    ),
-                  )),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                child: ListTile(
+                    leading: Image.asset('assets/icon_item.png'),
+                    title: Text('Nama Produk'),
+                    subtitle: Text('Stok masuk : 6\nStok Keluar : 2'),
+                    trailing: OutlinedButton(
+                      onPressed: () {
+                        // Respond to button press
+                      },
+                      child: Text(
+                        "Tersedia 20",
+                        style: TextStyle(color: Colors.black, fontSize: 10),
+                      ),
+                    )),
+              ),
             ),
             SizedBox(height: 6),
             Card(
@@ -81,19 +84,22 @@ class _OrderPageState extends State<OrderPage> {
                   color: Colors.grey.shade200,
                 ),
               ),
-              child: ListTile(
-                  leading: Image.asset('assets/icon_item.png'),
-                  title: Text('Nama Produk'),
-                  subtitle: Text('Stok masuk : 6\nStok Keluar : 2'),
-                  trailing: OutlinedButton(
-                    onPressed: () {
-                      // Respond to button press
-                    },
-                    child: Text(
-                      "Tersedia 20",
-                      style: TextStyle(color: Colors.black, fontSize: 10),
-                    ),
-                  )),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                child: ListTile(
+                    leading: Image.asset('assets/icon_item.png'),
+                    title: Text('Nama Produk'),
+                    subtitle: Text('Stok masuk : 6\nStok Keluar : 2'),
+                    trailing: OutlinedButton(
+                      onPressed: () {
+                        // Respond to button press
+                      },
+                      child: Text(
+                        "Tersedia 20",
+                        style: TextStyle(color: Colors.black, fontSize: 10),
+                      ),
+                    )),
+              ),
             ),
           ],
         ),

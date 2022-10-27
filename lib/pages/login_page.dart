@@ -64,9 +64,9 @@ class _LoginPageState extends State<LoginPage> {
                   height: 50,
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: ElevatedButton(
-                    child: const Text('LoginLogin'),
+                    child: const Text('Login'),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushReplacementNamed(context, '/home');
                     },
                   )),
             ],
