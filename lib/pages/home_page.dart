@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_umkm/dashboard.dart';
-import 'package:mobile_umkm/pages/opname_page.dart';
-import 'package:mobile_umkm/pages/order_page.dart';
+import 'package:mobile_umkm/widget/dashboard.dart';
+import 'package:mobile_umkm/pages/Opname/opname_page.dart';
+import 'package:mobile_umkm/pages/Order/order_page.dart';
 import 'package:mobile_umkm/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,11 +34,8 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border.fromBorderSide(BorderSide(
-            color: Color.fromARGB(255, 212, 211, 213),
-            width: 1.0
-          ))
-        ),
+            border: Border.fromBorderSide(BorderSide(
+                color: Color.fromARGB(255, 212, 211, 213), width: 1.0))),
         child: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

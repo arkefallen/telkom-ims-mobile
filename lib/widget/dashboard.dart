@@ -14,14 +14,19 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-
   @override
   Widget build(BuildContext context) {
     final panelHeightClosed = MediaQuery.of(context).size.height * 0.8;
 
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.person))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              icon: Icon(Icons.person))
+        ],
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,28 +48,33 @@ class _DashboardState extends State<Dashboard> {
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/view_inventories.png'),
-                    Text(
-                      "Lihat Stok",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/transaksi-in');
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.white,
+                      border: Border.all(
+                          color: Color.fromARGB(255, 212, 211, 213),
+                          style: BorderStyle.solid,
+                          width: 1.0)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/view_inventories.png'),
+                      Text(
+                        "Lihat Stok",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16.0),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -87,8 +97,8 @@ class _DashboardState extends State<Dashboard> {
                     Image.asset('assets/entry_inventories.png'),
                     Text(
                       "Barang Masuk",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     )
                   ],
                 ),
@@ -113,8 +123,8 @@ class _DashboardState extends State<Dashboard> {
                     Image.asset('assets/exit_inventories.png'),
                     Text(
                       "Barang Keluar",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     )
                   ],
                 ),
@@ -139,8 +149,8 @@ class _DashboardState extends State<Dashboard> {
                     Image.asset('assets/transfer_inventories.png'),
                     Text(
                       "Transfer Barang",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     )
                   ],
                 ),
@@ -165,8 +175,8 @@ class _DashboardState extends State<Dashboard> {
                     Image.asset('assets/convert_inventories.png'),
                     Text(
                       "Konversi Barang",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     )
                   ],
                 ),
@@ -191,8 +201,8 @@ class _DashboardState extends State<Dashboard> {
                     Image.asset('assets/alert_inventories.png'),
                     Text(
                       "Stock Alert",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     )
                   ],
                 ),
@@ -217,8 +227,8 @@ class _DashboardState extends State<Dashboard> {
                     Image.asset('assets/check_inventories.png'),
                     Text(
                       "Penyesuaian Stok",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     )
                   ],
                 ),

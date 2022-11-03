@@ -21,7 +21,7 @@ class _OrderPageState extends State<OrderPage> {
               padding: EdgeInsets.only(bottom: 30),
               alignment: Alignment.centerLeft,
               child: Text(
-                'Stock Opname',
+                'Purchase Order',
                 style: primaryTextStyle.copyWith(
                     fontSize: 24, color: Colors.black),
               ),
@@ -30,24 +30,22 @@ class _OrderPageState extends State<OrderPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  child: const Text('Penerimaan Barang'),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home');
-                  }
-                ),
+                    child: const Text('Penerimaan Barang'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    }),
                 ElevatedButton(
-                  child: const Text('Retur Barang'),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home');
-                  }
-                ),
+                    child: const Text('Retur Barang'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    }),
               ],
             ),
             Container(
               padding: EdgeInsets.only(top: 30, bottom: 10),
               alignment: Alignment.centerLeft,
               child: Text(
-                'Daftar Stock Opname',
+                'Daftar Purchase Order',
                 style: primaryTextStyle.copyWith(
                     fontSize: 20, color: Colors.black),
               ),
@@ -85,7 +83,8 @@ class _OrderPageState extends State<OrderPage> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
                 child: ListTile(
                     leading: Image.asset('assets/icon_item.png'),
                     title: Text('Nama Produk'),
