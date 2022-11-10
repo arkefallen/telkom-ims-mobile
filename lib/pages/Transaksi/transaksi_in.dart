@@ -1,8 +1,6 @@
-// ignore_for_file: unnecessary_new, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:mobile_umkm/theme.dart';
-import 'package:mobile_umkm/widget/inventory_list.dart';
+import 'package:mobile_umkm/widget/entry_inventory_item.dart';
 
 class TransaksiMasuk extends StatefulWidget {
   const TransaksiMasuk({Key? key}) : super(key: key);
@@ -16,27 +14,18 @@ class _TransaksiMasukState extends State<TransaksiMasuk> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Lihat Stok",
+        title: Text("Transaksi Barang Masuk",
             style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: primaryColor,
       ),
       body: ListView(
-          children: [
-        'Markisa App',
-        'HR App',
-        'Aplikasi Kasir',
-        'Web Perpustakaan',
-        'Game Rpg'
-      ].map((country) {
-        // returning the CardWidget passing only title
-        return ListInventory(title: country);
-      }).toList()),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: kPrimaryColor,
-        child: const Icon(Icons.add),
+        children: [
+          EntryInventoryItem(),
+          EntryInventoryItem(),
+          SizedBox(height: 6),
+        ],
       ),
     );
   }

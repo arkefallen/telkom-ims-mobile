@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:mobile_umkm/theme.dart';
 import 'package:mobile_umkm/widget/category_menu_item.dart';
+import 'package:mobile_umkm/widget/latest_transaction_item.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Dashboard extends StatefulWidget {
@@ -38,7 +39,14 @@ class _DashboardState extends State<Dashboard> {
   ];
 
   List<String> routeMenus = [
-    '/'
+    '/view-inventory',
+    '/entry-inventory',
+    '/view-inventory',
+    '/view-inventory',
+    '/view-inventory',
+    '/view-inventory',
+    '/view-inventory',
+    '/view-inventory',
   ];
 
   @override
@@ -74,7 +82,11 @@ class _DashboardState extends State<Dashboard> {
       body: Padding(
           padding: EdgeInsets.all(15.0),
           child: ListView(children: [
-            Text("Menu"),
+            Text(
+              "Menu",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 15.0),
             GridView.builder(
                 itemCount: 8,
                 physics: NeverScrollableScrollPhysics(),
@@ -86,10 +98,20 @@ class _DashboardState extends State<Dashboard> {
                 ),
                 itemBuilder: ((context, index) {
                   return CategoryMenuItem(
-                      iconCategory: iconMenus[index],
-                      titleCategory: titleMenus[index]);
+                    iconCategory: iconMenus[index],
+                    titleCategory: titleMenus[index],
+                    routePage: routeMenus[index],
+                  );
                 })),
-            Text("Menu"),
+            SizedBox(height: 30.0),
+            Text(
+              "Transaksi Terbaru",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 15.0),
+            Column(
+              children: [LatestTransactionItem(), LatestTransactionItem()],
+            )
           ])),
       backgroundColor: Colors.white,
     );

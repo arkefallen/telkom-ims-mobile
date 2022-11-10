@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CategoryMenuItem extends StatelessWidget {
-  String iconCategory = '';
-  String titleCategory = '';
+  String iconCategory;
+  String titleCategory;
+  String routePage;
 
-  CategoryMenuItem({required this.iconCategory, required this.titleCategory});
+  CategoryMenuItem(
+      {required this.iconCategory,
+      required this.titleCategory,
+      required this.routePage});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        
-      },
+      onTap: () => Navigator.pushNamed(context, routePage),
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),

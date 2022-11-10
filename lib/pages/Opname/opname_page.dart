@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_umkm/pages/Opname/add_opname.dart';
 import 'package:mobile_umkm/theme.dart';
+import 'package:mobile_umkm/widget/stock_opname_item.dart';
 
 class OpnamePage extends StatefulWidget {
   const OpnamePage({Key? key}) : super(key: key);
@@ -26,59 +28,17 @@ class _OpnamePageState extends State<OpnamePage> {
       body: Container(
         padding: EdgeInsets.only(right: 15, left: 15, top: 0),
         child: ListView(
-          children: [
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(9),
-                side: BorderSide(
-                  color: Colors.grey.shade200,
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
-                child: ListTile(
-                    leading: Image.asset('assets/icon_item.png'),
-                    title: Text('Nama Produk'),
-                    subtitle: Text('Stok masuk : 6\nStok Keluar : 2'),
-                    trailing: OutlinedButton(
-                      onPressed: () {
-                        // Respond to button press
-                      },
-                      child: Text(
-                        "Tersedia 20",
-                        style: TextStyle(color: Colors.black, fontSize: 10),
-                      ),
-                    )),
-              ),
-            ),
-            SizedBox(height: 6),
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(9),
-                side: BorderSide(
-                  color: Colors.grey.shade200,
-                ),
-              ),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
-                child: ListTile(
-                    leading: Image.asset('assets/icon_item.png'),
-                    title: Text('Nama Produk'),
-                    subtitle: Text('Stok masuk : 6\nStok Keluar : 2'),
-                    trailing: OutlinedButton(
-                      onPressed: () {
-                        // Respond to button press
-                      },
-                      child: Text(
-                        "Tersedia 20",
-                        style: TextStyle(color: Colors.black, fontSize: 10),
-                      ),
-                    )),
-              ),
-            ),
-          ],
+          children: [StockOpnameItem(), SizedBox(height: 5), StockOpnameItem()],
         ),
+      ),
+      floatingActionButton: ElevatedButton.icon(
+        onPressed: () => Navigator.pushNamed(context, '/stock-opname/add'),
+        icon: Icon(Icons.add),
+        label: Text("TAMBAH"),
+        style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0)),
       ),
     );
   }
