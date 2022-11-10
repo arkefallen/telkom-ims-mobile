@@ -5,6 +5,7 @@ double defaultMargin = 30.0;
 
 Color primaryTextColor = Color.fromARGB(255, 255, 255, 255);
 Color primaryColor = Color(0xffC93537);
+Color secondaryColor = Color.fromRGBO(77, 77, 77, 77);
 
 TextStyle primaryTextStyle = GoogleFonts.roboto(
   color: primaryTextColor,

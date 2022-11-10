@@ -15,7 +15,13 @@ class _TransaksiMasukState extends State<TransaksiMasuk> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
+      appBar: AppBar(
+        title: Text("Lihat Stok",
+            style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: primaryColor,
+      ),
       body: ListView(
           children: [
         'Markisa App',

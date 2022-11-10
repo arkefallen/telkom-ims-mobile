@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_umkm/theme.dart';
+import 'package:mobile_umkm/widget/category_menu_item.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Dashboard extends StatefulWidget {
@@ -14,6 +15,32 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  List<String> iconMenus = [
+    'assets/view_inventories.png',
+    'assets/entry_inventories.png',
+    'assets/exit_inventories.png',
+    'assets/transfer_inventories.png',
+    'assets/convert_inventories.png',
+    'assets/alert_inventories.png',
+    'assets/check_inventories.png',
+    'assets/history_inventories.png',
+  ];
+
+  List<String> titleMenus = [
+    'Lihat Stok',
+    'Barang Masuk',
+    'Barang Keluar',
+    'Transfer Barang',
+    'Konversi Barang',
+    'Stock Alert',
+    'Penyesuaian Stok',
+    'Riwayat Transaksi',
+  ];
+
+  List<String> routeMenus = [
+    '/'
+  ];
+
   @override
   Widget build(BuildContext context) {
     final panelHeightClosed = MediaQuery.of(context).size.height * 0.8;
@@ -44,199 +71,26 @@ class _DashboardState extends State<Dashboard> {
         automaticallyImplyLeading: false,
         elevation: 0,
       ),
-      body: GridView(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/transaksi-in');
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: InkWell(
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.white,
-                      border: Border.all(
-                          color: Color.fromARGB(255, 212, 211, 213),
-                          style: BorderStyle.solid,
-                          width: 1.0)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/view_inventories.png'),
-                      Text(
-                        "Lihat Stok",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16.0),
-                      )
-                    ],
-                  ),
+      body: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: ListView(children: [
+            Text("Menu"),
+            GridView.builder(
+                itemCount: 8,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
                 ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/entry_inventories.png'),
-                    Text(
-                      "Barang Masuk",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/exit_inventories.png'),
-                    Text(
-                      "Barang Keluar",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/transfer_inventories.png'),
-                    Text(
-                      "Transfer Barang",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/convert_inventories.png'),
-                    Text(
-                      "Konversi Barang",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/alert_inventories.png'),
-                    Text(
-                      "Stock Alert",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/check_inventories.png'),
-                    Text(
-                      "Penyesuaian Stok",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+                itemBuilder: ((context, index) {
+                  return CategoryMenuItem(
+                      iconCategory: iconMenus[index],
+                      titleCategory: titleMenus[index]);
+                })),
+            Text("Menu"),
+          ])),
       backgroundColor: Colors.white,
     );
   }
