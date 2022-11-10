@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/transaksi-in');
+              Navigator.pushNamed(context, '/lihat-stok');
             },
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -79,28 +79,33 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: InkWell(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Color.fromARGB(255, 212, 211, 213),
-                        style: BorderStyle.solid,
-                        width: 1.0)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/entry_inventories.png'),
-                    Text(
-                      "Barang Masuk",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
-                    )
-                  ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/transaksi-in');
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.white,
+                      border: Border.all(
+                          color: Color.fromARGB(255, 212, 211, 213),
+                          style: BorderStyle.solid,
+                          width: 1.0)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/entry_inventories.png'),
+                      Text(
+                        "Barang Masuk",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16.0),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
