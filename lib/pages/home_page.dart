@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_umkm/pages/Produksi/daftar_produksi.dart';
 import 'package:mobile_umkm/widget/dashboard.dart';
 import 'package:mobile_umkm/pages/Opname/opname_page.dart';
 import 'package:mobile_umkm/pages/Order/order_page.dart';
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   static const List<Widget> _widgetOptions = <Widget>[
     Dashboard(),
     OrderPage(),
+    DaftarProduksi(),
     OpnamePage()
   ];
 
@@ -37,6 +39,8 @@ class _HomePageState extends State<HomePage> {
             border: Border.fromBorderSide(BorderSide(
                 color: Color.fromARGB(255, 212, 211, 213), width: 1.0))),
         child: BottomNavigationBar(
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -45,6 +49,10 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart),
               label: 'Order',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.inventory),
+              label: 'Produksi',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.maps_home_work_outlined),

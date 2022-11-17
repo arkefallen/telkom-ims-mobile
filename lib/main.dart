@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:mobile_umkm/pages/Opname/add_opname.dart';
+import 'package:mobile_umkm/pages/Produksi/barang_produksi.dart';
+import 'package:mobile_umkm/pages/Produksi/detail_produksi.dart';
+import 'package:mobile_umkm/pages/Produksi/edit_item_produksi.dart';
+import 'package:mobile_umkm/pages/Produksi/tambah_produksi.dart';
 import 'package:mobile_umkm/pages/Transaksi/add_transaksi_in.dart';
 import 'package:mobile_umkm/pages/Transaksi/transaksi_in.dart';
 import 'package:mobile_umkm/pages/home_page.dart';
@@ -28,7 +32,11 @@ class MyApp extends StatelessWidget {
         '/view-inventory': (context) => ListInventory(),
         '/entry-inventory': (context) => TransaksiMasuk(),
         '/entry-inventory/add': (context) => AddTransaksiMasuk(),
-        '/stock-opname/add' : (context) => ProcessStockOpname(),
+        '/stock-opname/add': (context) => ProcessStockOpname(),
+        '/produksi': (context) => BarangProduksi(),
+        '/produksi/add': (context) => AddProduksi(),
+        '/produksi/detail': (context) => DetailProduksi(),
+        '/produksi/edit': (context) => EditItemProduksi(),
       },
     );
   }
