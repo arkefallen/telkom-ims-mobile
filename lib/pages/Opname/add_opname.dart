@@ -17,6 +17,26 @@ class _ProcessStockOpnameState extends State<ProcessStockOpname> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            color: Color.fromARGB(255, 255, 255, 255),
+            boxShadow: [
+              BoxShadow(
+                  color: Color.fromARGB(255, 224, 224, 224),
+                  spreadRadius: 1.0,
+                  blurRadius: 20.0,
+                  offset: Offset(0, -1.0))
+            ]),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+          child: ElevatedButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("PROSES"),
+            style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
+          ),
+        ),
+      ),
       appBar: AppBar(
         title: Text("Detail Stock Opname",
             style: TextStyle(
@@ -99,7 +119,8 @@ class _ProcessStockOpnameState extends State<ProcessStockOpname> {
                   itemCount: 5,
                   itemBuilder: ((context, index) {
                     return ListItemStockOpname();
-                  }))
+                  })),
+              SizedBox(height: 20.0),
             ],
           ),
         ),

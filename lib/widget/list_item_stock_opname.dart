@@ -64,7 +64,7 @@ class ListItemStockOpname extends StatelessWidget {
           ),
           trailing: ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/entry-inventory/add');
+              Navigator.pushNamed(context, '/stock-opname/edit');
             },
             child: Text(
               "Edit",
