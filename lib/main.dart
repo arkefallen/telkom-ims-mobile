@@ -10,6 +10,7 @@ import 'package:mobile_umkm/pages/profile_page.dart';
 import 'package:mobile_umkm/pages/splash_page.dart';
 import 'package:mobile_umkm/theme.dart';
 import 'package:mobile_umkm/widget/inventory_list.dart';
+import 'package:mobile_umkm/pages/Opname/edit_opname_inventory.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/entry-inventory': (context) => TransaksiMasuk(),
         '/entry-inventory/add': (context) => AddTransaksiMasuk(),
         '/stock-opname/add' : (context) => ProcessStockOpname(),
+        '/stock-opname/edit' : (context) => EditOpnameInventory()
       },
     );
   }

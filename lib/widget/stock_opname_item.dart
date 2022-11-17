@@ -39,7 +39,7 @@ class StockOpnameItem extends StatelessWidget {
           ),
           trailing: OutlinedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/entry-inventory/add');
+              Navigator.pushNamed(context, '/stock-opname/add');
             },
             child: Text("Edit"),
             style: OutlinedButton.styleFrom(
