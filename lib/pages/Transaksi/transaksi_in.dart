@@ -15,17 +15,21 @@ class _TransaksiMasukState extends State<TransaksiMasuk> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Transaksi Barang Masuk",
-            style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold)),
+            style: TextStyle(
+                color: Color(0xff4D4D4D), fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        foregroundColor: primaryColor,
+        foregroundColor: Color(0xff4D4D4D),
       ),
-      body: ListView(
-        children: [
-          EntryInventoryItem(),
-          EntryInventoryItem(),
-          SizedBox(height: 6),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: ListView(
+          children: [
+            EntryInventoryItem(),
+            SizedBox(height: 6),
+            EntryInventoryItem(),
+          ],
+        ),
       ),
     );
   }

@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Dashboard(),
-    OrderPage(),
+    // OrderPage(),
     DaftarProduksi(),
     OpnamePage()
   ];
@@ -46,10 +46,10 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.home),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: 'Order',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.shopping_cart),
+            //   label: 'Order',
+            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.inventory),
               label: 'Produksi',

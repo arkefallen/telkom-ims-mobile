@@ -149,23 +149,33 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
                 ],
               ),
             ),
-            OutlinedButton(
-              onPressed: () {
-                // Respond to button press
-              },
-              child: Container(
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: 40.0,
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "Stok Setelah Transaksi : 15 ",
-                  style: TextStyle(color: Colors.black, fontSize: 14),
+                child: Center(
+                  child: Text(
+                    "Stok Setelah Transaksi : 15 ",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-            ),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        width: 1.0,
+                        style: BorderStyle.solid,
+                        color: Color.fromARGB(255, 189, 189, 189)),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    color: Color.fromARGB(255, 59, 59, 59))),
+            SizedBox(height: 15.0),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                primary: primaryColor,
-                side: BorderSide(color: Colors.red, width: 1), //<-- SEE HERE
-              ),
+                  primary: primaryColor,
+                  side: BorderSide(color: Colors.red, width: 1),
+                  minimumSize: Size.fromHeight(50) //<-- SEE HERE
+                  ),
               onPressed: () {
                 // Respond to button press
               },
@@ -174,12 +184,14 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
                 style: TextStyle(color: primaryColor, fontSize: 14),
               ),
             ),
+            SizedBox(height: 8.0),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                backgroundColor: primaryColor,
-                primary: Colors.white,
-                side: BorderSide(color: Colors.red, width: 1), //<-- SEE HERE
-              ),
+                  backgroundColor: primaryColor,
+                  primary: Colors.white,
+                  side: BorderSide(color: Colors.red, width: 1),
+                  minimumSize: Size.fromHeight(50) //<-- SEE HERE
+                  ),
               onPressed: () {
                 // Respond to button press
               },

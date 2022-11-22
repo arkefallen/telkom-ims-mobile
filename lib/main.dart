@@ -6,6 +6,9 @@ import 'package:mobile_umkm/pages/Produksi/barang_produksi.dart';
 import 'package:mobile_umkm/pages/Produksi/detail_produksi.dart';
 import 'package:mobile_umkm/pages/Produksi/edit_item_produksi.dart';
 import 'package:mobile_umkm/pages/Produksi/tambah_produksi.dart';
+import 'package:mobile_umkm/pages/Stock/detail_stock_alert.dart';
+import 'package:mobile_umkm/pages/Stock/detail_stock_expired.dart';
+import 'package:mobile_umkm/pages/Stock/stock_alert.dart';
 import 'package:mobile_umkm/pages/Transaksi/add_transaksi_in.dart';
 import 'package:mobile_umkm/pages/Transaksi/transaksi_in.dart';
 import 'package:mobile_umkm/pages/home_page.dart';
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return MaterialApp(
-      theme: ThemeData(primarySwatch: kPrimaryColor), 
+      theme: ThemeData(primarySwatch: kPrimaryColor),
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => SplashPage(),
@@ -38,7 +41,10 @@ class MyApp extends StatelessWidget {
         '/produksi/add': (context) => AddProduksi(),
         '/produksi/detail': (context) => DetailProduksi(),
         '/produksi/edit': (context) => EditItemProduksi(),
-        '/stock-opname/edit': (context) => EditOpnameInventory()
+        '/stock-opname/edit': (context) => EditOpnameInventory(),
+        '/stock-alert': (context) => StockAlertExpired(),
+        '/stock-alert/detail-alert':(context) => DetailStockAlert(),
+        '/stock-alert/detail-expired':(context) => DetailStockExpired()
       },
     );
   }

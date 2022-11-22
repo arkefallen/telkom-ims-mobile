@@ -44,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
     '/view-inventory',
     '/view-inventory',
     '/view-inventory',
-    '/view-inventory',
+    '/stock-alert',
     '/view-inventory',
     '/view-inventory',
   ];
