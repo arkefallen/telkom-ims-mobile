@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return MaterialApp(
-      theme: ThemeData(primarySwatch: kPrimaryColor),
+      theme: ThemeData(primarySwatch: kPrimaryColor), 
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => SplashPage(),
@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         '/produksi/add': (context) => AddProduksi(),
         '/produksi/detail': (context) => DetailProduksi(),
         '/produksi/edit': (context) => EditItemProduksi(),
-        '/stock-opname/add': (context) => ProcessStockOpname(),
         '/stock-opname/edit': (context) => EditOpnameInventory()
       },
     );

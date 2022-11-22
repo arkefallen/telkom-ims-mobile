@@ -17,14 +17,9 @@ class _ListInventoryState extends State<ListInventory> {
           'Stok Inventory',
           style: TextStyle(color: Color(0xff4D4D4D)),
         ),
-        backgroundColor: Colors.white,
-        leading: GestureDetector(
-          onTap: () {/* Write listener code here */},
-          child: Icon(
-            Icons.arrow_back,
-            color: primaryColor,
-          ),
-        ),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Color(0xff4D4D4D),
+        elevation: 0,
       ),
       body: Container(
         padding: EdgeInsets.all(12),

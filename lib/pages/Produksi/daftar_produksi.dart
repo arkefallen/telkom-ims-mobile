@@ -44,7 +44,7 @@ class _DaftarProduksiState extends State<DaftarProduksi> {
             children: <Widget>[
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/entry-inventory/add');
+                  Navigator.pushNamed(context, '/produksi/edit');
                 },
                 child: Icon(Icons.mode_edit_outline_outlined),
                 style: ElevatedButton.styleFrom(
