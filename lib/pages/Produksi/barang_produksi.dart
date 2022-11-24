@@ -44,11 +44,11 @@ class _BarangProduksiState extends State<BarangProduksi> {
               Expanded(
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    backgroundColor: primaryColor,
-                    primary: Colors.white,
-                    side:
-                        BorderSide(color: Colors.red, width: 1), //<-- SEE HERE
-                  ),
+                      backgroundColor: primaryColor,
+                      primary: Colors.white,
+                      side: BorderSide(
+                          color: Colors.red, width: 1), //<-- SEE HERE
+                      minimumSize: Size.fromHeight(50)),
                   onPressed: () {
                     Navigator.pushNamed(context, '/produksi/add');
                   },

@@ -41,10 +41,10 @@ class _DetailProduksiState extends State<DetailProduksi> {
               Expanded(
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    primary: primaryColor,
-                    side:
-                        BorderSide(color: Colors.red, width: 1), //<-- SEE HERE
-                  ),
+                      primary: primaryColor,
+                      side: BorderSide(
+                          color: Colors.red, width: 1), //<-- SEE HERE
+                      minimumSize: Size.fromHeight(50)),
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.pop(context);

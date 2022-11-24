@@ -25,14 +25,25 @@ class _EditItemProduksiState extends State<EditItemProduksi> {
         padding: EdgeInsets.all(14),
         child: ListView(
           children: [
-            FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Container(
-                    height: 40,
-                    child: Text(
-                      "Telur",
-                      style: TextStyle(color: Colors.white, fontSize: 14),
-                    ))),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 40,
+                child: Center(
+                  child: Text(
+                    "Telur",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.grey[850],
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+              ),
+            ),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
