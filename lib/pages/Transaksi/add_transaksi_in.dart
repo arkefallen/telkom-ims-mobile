@@ -1,26 +1,39 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_field
 
 import 'package:flutter/material.dart';
+import 'package:mobile_umkm/controller/databasehelper.dart';
+import 'package:mobile_umkm/pages/Transaksi/transaksi_in.dart';
 import 'package:mobile_umkm/theme.dart';
 
 class AddTransaksiMasuk extends StatefulWidget {
-  const AddTransaksiMasuk({Key? key}) : super(key: key);
+  List? list;
+  int index;
+  AddTransaksiMasuk({required this.index, this.list});
 
   @override
   State<AddTransaksiMasuk> createState() => _AddTransaksiMasukState();
 }
 
 class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
-  String dropdownvalue = 'Vga rtx 2080';
-  bool isLainya = false;
+  DatabaseHelper databaseHelper = new DatabaseHelper();
 
-  var items = [
-    'Vga rtx 2080',
-    'Ram 8GB ddr4',
-    'Ryzen 5 5500U',
-    'PSU 500W',
-    'Monitor 144hz',
-  ];
+  late TextEditingController _namaInv;
+  late TextEditingController _jumlahIn;
+  late TextEditingController _jumlahStok;
+
+  @override
+  void initState() {
+    _namaInv =
+        new TextEditingController(text: widget.list![widget.index]['item_nm']);
+    _jumlahIn = new TextEditingController(
+        text: widget.list![widget.index]['jumlah_trx']);
+    _jumlahStok = new TextEditingController(
+        text: widget.list![widget.index]['quantity'] +
+            ' ' +
+            widget.list![widget.index]['unit_nm']);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +59,7 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: Colors.white70,
+                  color: Colors.white,
                   boxShadow: [
                     BoxShadow(
                         offset: Offset(0, 10),
@@ -54,26 +67,18 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
                         color: Colors.grey.withOpacity(0.53))
                   ]),
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: DropdownButton(
-                  underline: SizedBox(),
-                  isExpanded: true,
-                  value: dropdownvalue,
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  items: items.map((String items) {
-                    return DropdownMenuItem(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      dropdownvalue = newValue!;
-                      // if (newValue == 'Lainya') {
-                      //   isLainya = true;
-                      // }
-                    });
-                  },
+                padding: const EdgeInsets.only(left: 1),
+                child: TextField(
+                  controller: _namaInv,
+                  decoration: InputDecoration(
+                    enabled: false,
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    filled: true,
+                  ),
                 ),
               ),
             ),
@@ -94,14 +99,14 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
                                 padding:
                                     const EdgeInsets.only(top: 17, bottom: 8),
                                 alignment: Alignment.centerLeft,
-                                child: Text('Stok Inventori',
+                                child: Text('Jumlah Transaksi',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14)),
                               ),
                               TextField(
+                                controller: _jumlahIn,
                                 decoration: InputDecoration(
-                                  hintText: '10 SET',
                                   border: InputBorder.none,
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
@@ -124,14 +129,15 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
                                 padding:
                                     const EdgeInsets.only(top: 17, bottom: 8),
                                 alignment: Alignment.centerLeft,
-                                child: Text('Transaksi',
+                                child: Text('Stock Inventory',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14)),
                               ),
                               TextField(
+                                controller: _jumlahStok,
                                 decoration: InputDecoration(
-                                  hintText: '12',
+                                  enabled: false,
                                   border: InputBorder.none,
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
@@ -193,7 +199,13 @@ class _AddTransaksiMasukState extends State<AddTransaksiMasuk> {
                   minimumSize: Size.fromHeight(50) //<-- SEE HERE
                   ),
               onPressed: () {
-                // Respond to button press
+                databaseHelper.editTransaksi(
+                    "transaksi-barang-masuk",
+                    widget.list![widget.index]['positemunit_cd'],
+                    _jumlahIn.text.trim());
+                Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new TransaksiMasuk(),
+                ));
               },
               child: Text(
                 "SIMPAN",

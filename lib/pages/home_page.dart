@@ -19,6 +19,8 @@ class _HomePageState extends State<HomePage> {
     // OrderPage(),
     DaftarProduksi(),
     OpnamePage()
+    // Produksi(title: 'Produksi'),
+    // StockOpname(title: 'Stock Opname')
   ];
 
   void _onItemTapped(int index) {

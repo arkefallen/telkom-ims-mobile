@@ -18,11 +18,10 @@ class _AddProduksiState extends State<AddProduksi> {
               crossAxisAlignment: CrossAxisAlignment.start,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                'Markisa App',
-                'HR App',
-                'Aplikasi Kasir',
-                'Web Perpustakaan',
-                'Game Rpg'
+                'tepung',
+                'telur',
+                'minyak',
+                'gula',
               ].map((country) {
                 // returning the CardWidget passing only title
                 return ListAddProduksi(title: country);

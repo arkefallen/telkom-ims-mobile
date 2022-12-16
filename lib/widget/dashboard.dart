@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mobile_umkm/controller/databasehelper.dart';
 import 'package:mobile_umkm/theme.dart';
 import 'package:mobile_umkm/widget/category_menu_item.dart';
 import 'package:mobile_umkm/widget/latest_transaction_item.dart';
@@ -16,6 +17,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  DatabaseHelper databaseHelper = DatabaseHelper();
   List<String> iconMenus = [
     'assets/view_inventories.png',
     'assets/entry_inventories.png',
@@ -41,12 +43,12 @@ class _DashboardState extends State<Dashboard> {
   List<String> routeMenus = [
     '/view-inventory',
     '/entry-inventory',
-    '/view-inventory',
+    '/out-inventory',
     '/view-inventory',
     '/view-inventory',
     '/stock-alert',
     '/view-inventory',
-    '/view-inventory',
+    '/entry-history',
   ];
 
   @override
@@ -109,8 +111,13 @@ class _DashboardState extends State<Dashboard> {
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 15.0),
-            Column(
-              children: [LatestTransactionItem(), LatestTransactionItem()],
+            FutureBuilder<List>(
+              future: databaseHelper
+                  .getData("transaksi-inventori/riwayat-transaksi"),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) print(snapshot.error);
+                return ItemHistory(list: snapshot.data);
+              },
             )
           ])),
       backgroundColor: Colors.white,

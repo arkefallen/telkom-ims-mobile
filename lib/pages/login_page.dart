@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_umkm/controller/databasehelper.dart';
+import 'package:mobile_umkm/pages/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,8 +11,67 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  read() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'token';
+    final value = prefs.get(key) ?? 0;
+    // if (value != '0') {
+    //   Navigator.of(context).push(new MaterialPageRoute(
+    //     builder: (BuildContext context) => new HomePage(),
+    //   ));
+    // }
+  }
+
+  @override
+  initState() {
+    read();
+  }
+
+  DatabaseHelper databaseHelper = new DatabaseHelper();
+  String msgStatus = '';
+
+  final TextEditingController _emailController = new TextEditingController();
+  final TextEditingController _passwordController = new TextEditingController();
+
+  _onPressed() {
+    setState(() {
+      if (_emailController.text.trim().toLowerCase().isNotEmpty &&
+          _passwordController.text.trim().isNotEmpty) {
+        databaseHelper
+            .loginData(_emailController.text.trim().toLowerCase(),
+                _passwordController.text.trim())
+            .whenComplete(() {
+          if (databaseHelper.status) {
+            _showDialog();
+            msgStatus = 'Check email or password';
+          } else {
+            Navigator.pushReplacementNamed(context, '/home');
+          }
+        });
+      }
+    });
+  }
+
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text('Failed'),
+            content: new Text('Check your email or password'),
+            actions: <Widget>[
+              new RaisedButton(
+                child: new Text(
+                  'Close',
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
-                  controller: nameController,
+                  controller: _emailController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'User Name',
@@ -50,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
                   obscureText: true,
-                  controller: passwordController,
+                  controller: _passwordController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
@@ -64,11 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 50,
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: ElevatedButton(
-                    child: const Text('Login'),
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/home');
-                    },
-                  )),
+                      child: const Text('Login'), onPressed: _onPressed)),
             ],
           )),
     );
